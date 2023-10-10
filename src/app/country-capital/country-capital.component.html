@@ -1,0 +1,14 @@
+<div *ngIf="buttonList.length; else completed">
+  <button
+    *ngFor="let button of buttonList"
+    [class.selected]="selectedButton === button"
+    [class.incorrect]="previousButton && (button === selectedButton || button === previousButton)"
+    (click)="selectButton(button)"
+  >
+    {{ button }}
+  </button>
+</div>
+
+<ng-template #completed>
+  Congratulations
+</ng-template>
